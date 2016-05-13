@@ -1,0 +1,70 @@
+{
+  "name": "node-thrash",
+  "version": "0.1.0",
+  "description": "Node streaming processor",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint src tests examples",
+    "test": "npm run lint && nyc ava"
+  },
+  "ava": {
+    "verbose": true,
+    "files": [
+      "tests/"
+    ]
+  },
+  "nyc": {
+    "all": true,
+    "include": [
+      "src/"
+    ],
+    "reporter": [
+      "text",
+      "lcov"
+    ],
+    "lines": 90,
+    "function": 90,
+    "branches": 90,
+    "check-coverage": false,
+    "report-dir": ".coverage"
+  },
+  "eslintConfig": {
+    "extends": "airbnb-base",
+    "rules": {
+      "comma-dangle": [
+        "error",
+        "never"
+      ]
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cantidio/node-thrash.git"
+  },
+  "keywords": [
+    "rx",
+    "rxjs",
+    "streaming",
+    "processor",
+    "kafka",
+    "observable"
+  ],
+  "author": "Cantidio Fontes <aniquilatorbloody@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "ava": "^0.14.0",
+    "babel-cli": "^6.8.0",
+    "babel-eslint": "^6.0.4",
+    "babel-plugin-transform-es2015-destructuring": "^6.8.0",
+    "babel-plugin-transform-object-assign": "^6.8.0",
+    "codeclimate-test-reporter": "^0.3.1",
+    "eslint": "^2.9.0",
+    "eslint-config-airbnb-base": "^3.0.1",
+    "eslint-plugin-import": "^1.8.0",
+    "nyc": "^6.4.4",
+    "rimraf": "^2.5.2"
+  },
+  "dependencies": {
+    "rxjs": "^5.0.0-beta.7"
+  }
+}
