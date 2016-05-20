@@ -4,6 +4,7 @@
   "description": "Node streaming processor",
   "main": "index.js",
   "scripts": {
+    "start": "babel-node ./examples",
     "lint": "eslint src tests examples",
     "test": "npm run lint && nyc ava"
   },
@@ -29,13 +30,27 @@
     "report-dir": ".coverage"
   },
   "eslintConfig": {
+    "parser": "babel-eslint",
     "extends": "airbnb-base",
+    "parserOptions": {
+      "sourceType": "module"
+    },
     "rules": {
       "comma-dangle": [
         "error",
         "never"
       ]
     }
+  },
+  "babel": {
+    "presets": [
+      "es2015",
+      "babel-preset-stage-2"
+    ],
+    "plugins": [
+      "transform-object-assign",
+      "transform-es2015-destructuring"
+    ]
   },
   "repository": {
     "type": "git",
@@ -65,6 +80,13 @@
     "rimraf": "^2.5.2"
   },
   "dependencies": {
-    "rxjs": "^5.0.0-beta.7"
+    "autobahn": "^0.10.0",
+    "bufferutil": "^1.2.1",
+    "kafka-node": "^0.3.2",
+    "meow": "^3.7.0",
+    "rxjs": "^5.0.0-beta.7",
+    "utf-8-validate": "^1.2.1",
+    "winston": "^2.2.0",
+    "ws": "^1.1.0"
   }
 }
