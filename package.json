@@ -4,6 +4,8 @@
   "description": "Node streaming processor",
   "main": "index.js",
   "scripts": {
+    "clean": "rimraf .build .coverage",
+    "build": "npm run clean && babel ./src -d .build",
     "start": "babel-node ./examples",
     "lint": "eslint src tests examples",
     "test": "npm run lint && nyc ava"
